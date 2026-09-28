@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Script-Controlled ACL | Gemini AI Education</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <span>🔐</span>
+            ACL<span>Lab</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#demo">ACL Demo</a>
+            <a href="#gemini">Gemini AI</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                🔒 Access Control • 🎓 Education • 🤖 AI
+            </div>
+
+            <h1>
+                Script-Controlled
+                <span>ACL</span>
+            </h1>
+
+            <h2>
+                Restrict Record Access Based on Field Value
+            </h2>
+
+            <p>
+                Explore how JavaScript-based access rules can dynamically
+                control record visibility according to field values.
+                Learn the concept through an interactive educational demo.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#demo" class="primary-btn">
+                    Try ACL Demo →
+                </a>
+
+                <a href="#gemini" class="secondary-btn">
+                    Explore Gemini AI
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Hero Card -->
+
+        <div class="hero-card">
+
+            <div class="lock-icon">
+                🔐
+            </div>
+
+            <h3>
+                Dynamic Access Control
+            </h3>
+
+            <div class="code-box">
+
+                <span>if</span>
+                (record.status ===
+                <b>"Restricted"</b>)
+                {
+
+                <br>
+
+                &nbsp;&nbsp;access =
+                <b>false</b>;
+
+                <br>
+
+                }
+
+            </div>
+
+            <div class="status">
+
+                <span class="dot"></span>
+
+                ACL Engine Active
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONCEPT SECTION ================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <p>
+                LEARN THE CONCEPT
+            </p>
+
+            <h2>
+                How Script-Controlled ACL Works
+            </h2>
+
+        </div>
+
+
+        <div class="steps">
+
+            <!-- Step 1 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Read Field Value
+                </h3>
+
+                <p>
+                    The script checks a selected field such as
+                    status, department or access level.
+                </p>
+
+            </div>
+
+
+            <!-- Step 2 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Apply Rule
+                </h3>
+
+                <p>
+                    JavaScript evaluates the field value against
+                    the defined access-control condition.
+                </p>
+
+            </div>
+
+
+            <!-- Step 3 -->
+
+            <div class="step-card">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Control Access
+                </h3>
+
+                <p>
+                    The record is either allowed or restricted
+                    depending on the evaluated condition.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTERACTIVE DEMO ================= -->
+
+    <section class="demo-section" id="demo">
+
+        <div class="section-title">
+
+            <p>
+                INTERACTIVE LAB
+            </p>
+
+            <h2>
+                Test the ACL Rule
+            </h2>
+
+            <span>
+                Enter the record details and select a field value
+                to observe how access changes.
+            </span>
+
+        </div>
+
+
+        <div class="dashboard">
+
+
+            <!-- ================= RECORD PANEL ================= -->
+
+            <div class="record-panel">
+
+                <div class="panel-header">
+
+                    <h3>
+                        📋 Student Record
+                    </h3>
+
+                    <span class="record-id">
+                        ID: STU-1024
+                    </span>
+
+                </div>
+
+
+                <!-- Student Name -->
+
+                <div class="field">
+
+                    <label for="studentName">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter student name"
+                    >
+
+                </div>
+
+
+                <!-- Course -->
+
+                <div class="field">
+
+                    <label for="course">
+                        Course
+                    </label>
+
+                    <input
+                        type="text"
+                        id="course"
+                        placeholder="Enter course"
+                    >
+
+                </div>
+
+
+                <!-- Department -->
+
+                <div class="field">
+
+                    <label for="department">
+                        Department
+                    </label>
+
+                    <input
+                        type="text"
+                        id="department"
+                        placeholder="Enter department"
+                    >
+
+                </div>
+
+
+                <!-- Record Status -->
+
+                <div class="field">
+
+                    <label for="status">
+                        Record Status
+                    </label>
+
+                    <select
+                        id="status"
+                        onchange="checkAccess()"
+                    >
+
+                        <option value="" selected disabled>
+                            Select record status
+                        </option>
+
+                        <option value="Public">
+                            Public
+                        </option>
+
+                        <option value="Private">
+                            Private
+                        </option>
+
+                        <option value="Restricted">
+                            Restricted
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Check Access Button -->
+
+                <button
+                    class="check-btn"
+                    onclick="checkAccess()"
+                >
+                    🔍 Check Access
+                </button>
+
+            </div>
+
+
+            <!-- ================= RESULT PANEL ================= -->
+
+            <div class="result-panel">
+
+                <div
+                    id="resultIcon"
+                    class="result-icon"
+                >
+                    🔐
+                </div>
+
+
+                <h2 id="resultTitle">
+                    Select Record Status
+                </h2>
+
+
+                <p id="resultMessage">
+                    Select a status to check the access permission.
+                </p>
+
+
+                <!-- Access Information -->
+
+                <div class="access-box">
+
+                    <div>
+
+                        <span>
+                            Field Value
+                        </span>
+
+                        <strong id="fieldValue">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Access
+                        </span>
+
+                        <strong id="accessValue">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Applied Rule -->
+
+                <div class="rule-box">
+
+                    <h4>
+                        ⚙ Applied Rule
+                    </h4>
+
+                    <code>
+                        status === "Restricted"
+                        → denyAccess()
+                    </code>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= GEMINI AI SECTION ================= -->
+
+    <section
+        class="gemini-section"
+        id="gemini"
+    >
+
+        <div class="ai-container">
+
+
+            <!-- AI Information -->
+
+            <div class="ai-content">
+
+                <div class="ai-badge">
+                    ✨ GEMINI AI × EDUCATION
+                </div>
+
+
+                <h2>
+
+                    Learn Access Control
+                    <span>with AI</span>
+
+                </h2>
+
+
+                <p>
+
+                    Gemini AI can be used as an educational assistant
+                    to explain access-control concepts, generate examples,
+                    simplify scripts and help students understand
+                    security logic.
+
+                </p>
+
+
+                <div class="ai-features">
+
+
+                    <div>
+
+                        💡
+
+                        <strong>
+                            Explain
+                        </strong>
+
+                        <span>
+                            Complex ACL concepts
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        🧠
+
+                        <strong>
+                            Learn
+                        </strong>
+
+                        <span>
+                            Through examples
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        💻
+
+                        <strong>
+                            Practice
+                        </strong>
+
+                        <span>
+                            With coding exercises
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- AI Chat -->
+
+            <div class="ai-chat">
+
+
+                <!-- Chat Header -->
+
+                <div class="chat-header">
+
+                    <span class="gemini-logo">
+                        ✦
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Gemini AI Tutor
+                        </strong>
+
+                        <small>
+                            Educational Assistant
+                        </small>
+
+                    </div>
+
+
+                    <span class="online">
+                        ●
+                    </span>
+
+                </div>
+
+
+                <!-- Chat Messages -->
+
+                <div class="chat-body">
+
+
+                    <div class="message ai-message">
+
+                        👋 Hi! I'm your AI learning assistant.
+
+                        Ask me about ACL, JavaScript
+                        or access control.
+
+                    </div>
+
+
+                    <div class="message user-message">
+
+                        Why is access denied?
+
+                    </div>
+
+
+                    <div class="message ai-message">
+
+                        Access is denied because the record's
+                        status field is set to
+
+                        <b>
+                            "Restricted"
+                        </b>.
+
+                    </div>
+
+                </div>
+
+
+                <!-- Chat Input -->
+
+                <div class="chat-input">
+
+                    <input
+                        id="question"
+                        type="text"
+                        placeholder="Ask about ACL..."
+                    >
+
+
+                    <button onclick="askAI()">
+                        ➤
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT SECTION ================= -->
+
+    <section
+        class="about"
+        id="about"
+    >
+
+        <div class="section-title">
+
+            <p>
+                EDUCATIONAL PURPOSE
+            </p>
+
+            <h2>
+                Why Learn Script-Controlled ACL?
+            </h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <!-- Security -->
+
+            <div>
+
+                <span>
+                    🔐
+                </span>
+
+                <h3>
+                    Security
+                </h3>
+
+                <p>
+                    Understand how applications can restrict
+                    access to sensitive records.
+                </p>
+
+            </div>
+
+
+            <!-- Automation -->
+
+            <div>
+
+                <span>
+                    ⚡
+                </span>
+
+                <h3>
+                    Automation
+                </h3>
+
+                <p>
+                    Learn how scripts can automatically evaluate
+                    field values and apply rules.
+                </p>
+
+            </div>
+
+
+            <!-- Learning -->
+
+            <div>
+
+                <span>
+                    🎓
+                </span>
+
+                <h3>
+                    Learning
+                </h3>
+
+                <p>
+                    Practice security concepts using an
+                    easy-to-understand interactive interface.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="logo">
+
+            🔐 ACL<span>Lab</span>
+
+        </div>
+
+
+        <p>
+            Educational demonstration of Script-Controlled ACL
+        </p>
+
+
+        <p class="copyright">
+            © 2026 ACLLab • Learning through Technology
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+.
